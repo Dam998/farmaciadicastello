@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import type React from 'react'
 
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
+import { Geist } from 'next/font/google'
+
+const geist = Geist({
+  subsets: ['latin'],
+})
 
 import './globals.css'
 import Footer from '@/components/Footer'
@@ -21,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={geist.className}>
         <Header />
         <main className="mt-20">{children}</main>
         <Footer />
